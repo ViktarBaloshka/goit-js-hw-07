@@ -5,7 +5,7 @@ const galleryContainer = document.querySelector('.gallery');
 const galleryMarkup = createListImages(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
-galleryContainer.addEventListener('click', onImageClick);
+galleryContainer.addEventListener('click', onClickToImage);
 
 function createListImages(galleryItems) {
   return galleryItems
@@ -27,8 +27,8 @@ function createListImages(galleryItems) {
     .join('');
 }
 
-function onImageClick(event) {
-  if (!event.target.classList.contains('.gallery__image')) {
+function onClickToImage(event) {
+  if (!event.target.classList.contains('gallery__image')) {
     return;
   }
   event.preventDefault();
@@ -36,20 +36,11 @@ function onImageClick(event) {
 }
 
 function createModal(src) {
-  let instance = basicLightbox.create(
+  const instance = basicLightbox.create(
     `<div class="modal">
-        <img src=${src}</img>
+        <img src="${src}"/>
     </div>`,
-    // {
-    //   onShow: instance => {
-    //     instance.show();
-    //   },
-    // },
-    // {
-    //   onClose: instance => {
-    //     instance.close();
-    //   },
-    // },
   );
   instance.show();
 }
+console.log(galleryItems);
