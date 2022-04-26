@@ -32,12 +32,12 @@ function onClickToImage(event) {
     return;
   }
   event.preventDefault();
-  createModal(event.target.dataset.source);
+  createModalForm(event.target.getAttribute('data-src'));
 }
 
-function createModal(src) {
+function createModalForm(src) {
   const instance = basicLightbox.create(
-    `<div class="modal">
+    `<div>
         <img src="${src}"/>
     </div>`,
   );
